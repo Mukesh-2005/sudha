@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Live Results{% endblock %}
+{% block content %}
+<div class="card">
+    <h2>Live Results</h2>
+    <p class="meta">{{ total_votes }} of {{ total_students }} students have voted.</p>
+
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Party</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidate in candidates %}
+            <tr>
+                <td>{{ candidate.CANDIDATE_NAME }}</td>
+                <td>{{ candidate.PARTY }}</td>
+                <td>{{ candidate.VOTE_COUNT }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{{ url_for('admin_logout') }}">Log out</a></p>
+</div>
+<script>
+    // Auto-refresh so the admin sees a live tally without manual reloads.
+    setTimeout(() => location.reload(), 5000);
+</script>
+{% endblock %}

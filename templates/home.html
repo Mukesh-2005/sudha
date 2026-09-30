@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="card">
+    <h2>Student Council Elections 2026</h2>
+    <p>
+        Welcome to the college's online voting portal. Voting lets every
+        student cast a ballot from anywhere on campus, blocks duplicate
+        votes automatically, and gives the election committee a live,
+        error-free tally the moment polls close.
+    </p>
+    <ul class="home-list">
+        <li>Log in with your Student ID and password.</li>
+        <li>Choose one candidate and submit your vote.</li>
+        <li>Each Student ID can vote exactly once.</li>
+    </ul>
+    <a class="button-link" href="{{ url_for('login') }}">Proceed to Login</a>
+    <p class="admin-link"><a href="{{ url_for('admin_login') }}">Admin login</a></p>
+</div>
+{% endblock %}
